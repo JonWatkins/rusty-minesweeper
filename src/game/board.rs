@@ -335,10 +335,10 @@ mod tests {
         assert_eq!(board.width, 10);
         assert_eq!(board.height, 8);
         assert_eq!(board.mine_count, 15);
-        assert_eq!(board.game_over, false);
-        assert_eq!(board.game_won, false);
-        assert_eq!(board.first_click, true);
-        assert_eq!(board.game_started, false);
+        assert!(!board.game_over);
+        assert!(!board.game_won);
+        assert!(board.first_click);
+        assert!(!board.game_started);
 
         assert_eq!(board.board.len(), 8);
         assert_eq!(board.board[0].len(), 10);
@@ -441,7 +441,7 @@ mod tests {
         let result = board.reveal_cell(1, 1);
         assert!(result);
         assert_eq!(board.get_cell_state(1, 1), CellState::Revealed);
-        assert_eq!(board.first_click, false);
+        assert!(!board.first_click);
     }
 
     #[test]
@@ -575,10 +575,10 @@ mod tests {
 
         board.reset();
 
-        assert_eq!(board.game_over, false);
-        assert_eq!(board.game_won, false);
-        assert_eq!(board.first_click, true);
-        assert_eq!(board.game_started, false);
+        assert!(!board.game_over);
+        assert!(!board.game_won);
+        assert!(board.first_click);
+        assert!(!board.game_started);
 
         for row in &board.board {
             for cell in row {
@@ -592,11 +592,11 @@ mod tests {
     fn test_start_game() {
         let mut board = GameBoard::new(3, 3, 1);
 
-        assert_eq!(board.game_started, false);
+        assert!(!board.game_started);
 
         board.start_game();
 
-        assert_eq!(board.game_started, true);
+        assert!(board.game_started);
     }
 
     #[test]

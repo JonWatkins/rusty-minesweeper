@@ -1864,10 +1864,12 @@ version = "0.1.0"
 dependencies = [
  "anyhow",
  "clap",
+ "cocoa",
  "eframe",
  "egui",
  "env_logger",
  "log",
+ "objc",
  "rand",
  "winit 0.29.15",
 ]
