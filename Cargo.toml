@@ -1,0 +1,27 @@
+[package]
+name = "minesweeper"
+version = "0.1.0"
+edition = "2021"
+description = "A Minesweeper game built with Rust and egui"
+
+[package.metadata.bundle]
+name = "Minesweeper"
+identifier = "com.minesweeper.app"
+version = "0.1.0"
+short_description = "A Minesweeper game built with Rust and egui"
+long_description = "A classic Minesweeper game built with Rust and egui, featuring multiple difficulty levels and a clean, modern interface."
+icon = ["assets/icon.icns"]
+
+[[bin]]
+name = "Minesweeper"
+path = "src/main.rs"
+
+[dependencies]
+winit = "0.29"
+egui = "0.24"
+eframe = "0.24"
+rand = "0.8"
+log = "0.4"
+env_logger = "0.10"
+anyhow = "1.0"
+clap = { version = "4.4", features = ["derive"] }
